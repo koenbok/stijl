@@ -7,8 +7,7 @@
     "types": ["jest"],
     "outDir": "dist",
     "sourceMap": true,
-    "declaration": true,
-    "baseUrl": "./src"
+    "declaration": true
   },
-  "exclude": ["node_modules", "**/*.test.ts"]
+  "exclude": ["node_modules", "__tests__/**/*"]
 }
