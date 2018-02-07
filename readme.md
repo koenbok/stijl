@@ -1,7 +1,4 @@
-<div align="center">
-  ![](https://images-na.ssl-images-amazon.com/images/I/51i4u5HvYIL._SY463_.jpg | width=100)
-</div>
-
+![](https://images-na.ssl-images-amazon.com/images/I/51i4u5HvYIL._SY463_.jpg | width=100)
 
 <h1 align="center">De Stijl</h1>
 
