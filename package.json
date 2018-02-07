@@ -1,6 +1,6 @@
 {
   "name": "destijl",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "devDependencies": {
     "@types/jest": "^22.1.1",
     "@types/node": "^9.4.1",
@@ -18,6 +18,13 @@
       "^.+\\.tsx?$": "ts-jest"
     },
     "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
-    "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"]
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
   }
 }
