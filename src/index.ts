@@ -58,6 +58,16 @@ export class StylingRule {
     return this;
   }
 
+  active(css: React.CSSProperties) {
+    this._css[":active"] = css;
+    return this;
+  }
+
+  placeholder(css: React.CSSProperties) {
+    this._css[":placeholder"] = css;
+    return this;
+  }
+
   before(css: React.CSSProperties) {
     this._css[":before"] = css;
     return this;
