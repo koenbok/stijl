@@ -105,10 +105,6 @@ export class StylingRule {
     return this;
   }
 
-  keyframes(css: React.CSSProperties) {
-    return keyframes(css);
-  }
-
   lastChild(css: React.CSSProperties) {
     this._style[":last-child"] = css;
     return this;
@@ -133,20 +129,6 @@ export class StylingRule {
     this._style[":visited"] = css;
     return this;
   }
-
-  // + :active
-  // + :checked
-  // + :disabled
-  // + :first-child
-  // + :last-child
-  // + :nth-child()
-  // + :focus
-  // + :hover
-  // + :visited
-  // + :after
-  // + :before
-
-  // @keyframes
 }
 
 export const Style = (css: React.CSSProperties) => new StylingRule(css);
