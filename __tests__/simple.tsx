@@ -60,3 +60,45 @@ test("renders hovers", () => {
 
   expect(tree).toMatchSnapshot();
 });
+
+test("update", () => {
+  const style = Style({ border: "1px solid red" });
+
+  style.update({ color: "red" });
+
+  expect(style.style).toEqual({
+    border: "1px solid red",
+    color: "red"
+  });
+
+  expect(style).toBe(style);
+});
+
+test("merge", () => {
+  const styleA = Style({ border: "1px solid red" });
+  const styleB = styleA.merge({ color: "red" });
+
+  expect(styleA.style).toEqual({
+    border: "1px solid red"
+  });
+
+  expect(styleB.style).toEqual({
+    border: "1px solid red",
+    color: "red"
+  });
+});
+
+test("copy", () => {
+  const styleA = Style({ border: "1px solid red" });
+  const styleB = styleA.copy();
+
+  expect(styleA.style).toEqual({
+    border: "1px solid red"
+  });
+
+  expect(styleB.style).toEqual({
+    border: "1px solid red"
+  });
+
+  expect(styleA).not.toBe(styleB);
+});

@@ -38,38 +38,56 @@ const patchCreateElement = () => {
 patchCreateElement();
 
 export class StylingRule {
-  private _css = {};
+  private _style = {};
 
   constructor(css: React.CSSProperties) {
-    this._css = css;
+    this._style = css;
   }
 
   css() {
-    return glamor(this._css) as any;
+    return glamor(this._style) as any;
   }
 
+  get style() {
+    return this._style;
+  }
+
+  update(css: React.CSSProperties) {
+    Object.assign(this._style, css);
+  }
+
+  copy() {
+    return new StylingRule(this._style);
+  }
+
+  merge(css: React.CSSProperties) {
+    return new StylingRule(Object.assign({}, this._style, css));
+  }
+
+  // Special selector helpers
+
   mediaQuery(query: string, css: React.CSSProperties) {
-    this._css[`@media only screen and (${query})`] = css;
+    this._style[`@media only screen and (${query})`] = css;
     return this;
   }
 
   hover(css: React.CSSProperties) {
-    this._css[":hover"] = css;
+    this._style[":hover"] = css;
     return this;
   }
 
   active(css: React.CSSProperties) {
-    this._css[":active"] = css;
+    this._style[":active"] = css;
     return this;
   }
 
   placeholder(css: React.CSSProperties) {
-    this._css[":placeholder"] = css;
+    this._style[":placeholder"] = css;
     return this;
   }
 
   before(css: React.CSSProperties) {
-    this._css[":before"] = css;
+    this._style[":before"] = css;
     return this;
   }
 }
