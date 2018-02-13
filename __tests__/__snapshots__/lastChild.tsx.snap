@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders :last-child 1`] = `
+<html>
+  <head>
+    <style
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": ".css-r6a46v,[data-css-r6a46v] {background: red;}.css-r6a46v:last-child,[data-css-r6a46v]:last-child {background: green;}",
+        }
+      }
+    />
+  </head>
+  <body>
+    <div
+      data-css-r6a46v=""
+    />
+  </body>
+  a
+</html>
+`;

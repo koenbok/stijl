@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders keyframes 1`] = `
+<html>
+  <head>
+    <style
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "@-webkit-keyframes animation_oy05gt { 
+  0% {transform: rotate(0deg); -webkit-transform: rotate(0deg);} 
+  100% {transform: rotate(360deg); -webkit-transform: rotate(360deg);} 
+}@-moz-keyframes animation_oy05gt { 
+  0% {transform: rotate(0deg); -webkit-transform: rotate(0deg);} 
+  100% {transform: rotate(360deg); -webkit-transform: rotate(360deg);} 
+}@-o-keyframes animation_oy05gt { 
+  0% {transform: rotate(0deg); -webkit-transform: rotate(0deg);} 
+  100% {transform: rotate(360deg); -webkit-transform: rotate(360deg);} 
+}@keyframes animation_oy05gt { 
+  0% {transform: rotate(0deg); -webkit-transform: rotate(0deg);} 
+  100% {transform: rotate(360deg); -webkit-transform: rotate(360deg);} 
+}.css-1nstuhc,[data-css-1nstuhc] {animate: 1s linear animation_oy05gt;}",
+        }
+      }
+    />
+  </head>
+  <body>
+    <div
+      data-css-1nstuhc=""
+    />
+  </body>
+</html>
+`;

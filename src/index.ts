@@ -1,5 +1,5 @@
 import * as React from "react";
-import { css as glamor } from "glamor";
+import { css as glamor, keyframes } from "glamor";
 
 import { renderToString } from "react-dom/server";
 import { renderStatic } from "glamor/server";
@@ -65,9 +65,38 @@ export class StylingRule {
   }
 
   // Special selector helpers
+  active(css: React.CSSProperties) {
+    this._style[":active"] = css;
+    return this;
+  }
 
-  mediaQuery(query: string, css: React.CSSProperties) {
-    this._style[`@media only screen and (${query})`] = css;
+  after(css: React.CSSProperties) {
+    this._style[":after"] = css;
+    return this;
+  }
+
+  before(css: React.CSSProperties) {
+    this._style[":before"] = css;
+    return this;
+  }
+
+  checked(css: React.CSSProperties) {
+    this._style[":checked"] = css;
+    return this;
+  }
+
+  disabled(css: React.CSSProperties) {
+    this._style[":disabled"] = css;
+    return this;
+  }
+
+  firstChild(css: React.CSSProperties) {
+    this._style[":first-child"] = css;
+    return this;
+  }
+
+  focus(css: React.CSSProperties) {
+    this._style[":focus"] = css;
     return this;
   }
 
@@ -76,8 +105,22 @@ export class StylingRule {
     return this;
   }
 
-  active(css: React.CSSProperties) {
-    this._style[":active"] = css;
+  keyframes(css: React.CSSProperties) {
+    return keyframes(css);
+  }
+
+  lastChild(css: React.CSSProperties) {
+    this._style[":last-child"] = css;
+    return this;
+  }
+
+  mediaQuery(query: string, css: React.CSSProperties) {
+    this._style[`@media only screen and (${query})`] = css;
+    return this;
+  }
+
+  nthChild(pattern: string, css: React.CSSProperties) {
+    this._style[`:nth-child(${pattern})`] = css;
     return this;
   }
 
@@ -86,13 +129,28 @@ export class StylingRule {
     return this;
   }
 
-  before(css: React.CSSProperties) {
-    this._style[":before"] = css;
+  visited(css: React.CSSProperties) {
+    this._style[":visited"] = css;
     return this;
   }
+
+  // + :active
+  // + :checked
+  // + :disabled
+  // + :first-child
+  // + :last-child
+  // + :nth-child()
+  // + :focus
+  // + :hover
+  // + :visited
+  // + :after
+  // + :before
+
+  // @keyframes
 }
 
 export const Style = (css: React.CSSProperties) => new StylingRule(css);
+export const Keyframes = (css: React.CSSProperties) => keyframes(css);
 
 export const Styling = (props: { body: any }) => {
   let { html, css, ids } = renderStatic(() => renderToString(props.body));
