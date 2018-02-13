@@ -82,7 +82,7 @@ export class StylingRule {
   }
 
   placeholder(css: React.CSSProperties) {
-    this._style[":placeholder"] = css;
+    this._style["::placeholder"] = css;
     return this;
   }
 

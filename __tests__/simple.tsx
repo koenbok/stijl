@@ -102,3 +102,12 @@ test("copy", () => {
 
   expect(styleA).not.toBe(styleB);
 });
+
+test("::placeholder", () => {
+  const styleA = Style({});
+  styleA.placeholder({ color: "red" });
+
+  expect(styleA.style).toEqual({
+    "::placeholder": { color: "red" }
+  });
+});
