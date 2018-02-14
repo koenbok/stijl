@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders with clean glamor cache 1`] = `
+<html>
+  <head>
+    <style
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": ".css-1hbko49,[data-css-1hbko49] {background: red;}",
+        }
+      }
+    />
+  </head>
+  <body>
+    <div
+      data-css-1hbko49=""
+    />
+  </body>
+</html>
+`;
+
+exports[`renders with clean glamor cache 2`] = `
+<html>
+  <head>
+    <style
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": ".css-1wsp713,[data-css-1wsp713] {background: green;}",
+        }
+      }
+    />
+  </head>
+  <body>
+    <div
+      data-css-1wsp713=""
+    />
+  </body>
+</html>
+`;

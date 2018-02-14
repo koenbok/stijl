@@ -1,0 +1,229 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`::placeholder 1`] = `
+<html>
+  <head>
+    <style
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": ".css-tp17oe,[data-css-tp17oe] {border: 1px solid red;}.css-tp17oe::-webkit-input-placeholder,[data-css-tp17oe]::-webkit-input-placeholder {background: green;}.css-tp17oe::-moz-placeholder,[data-css-tp17oe]::-moz-placeholder {background: green;}.css-tp17oe::-ms-input-placeholder,[data-css-tp17oe]::-ms-input-placeholder {background: green;}.css-tp17oe::placeholder,[data-css-tp17oe]::placeholder {background: green;}",
+        }
+      }
+    />
+  </head>
+  <body>
+    <div
+      data-css-tp17oe=""
+    />
+  </body>
+</html>
+`;
+
+exports[`:active 1`] = `
+<html>
+  <head>
+    <style
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": ".css-1e0ptde,[data-css-1e0ptde] {border: 1px solid red;}.css-1e0ptde:active,[data-css-1e0ptde]:active {border: 1px solid green;}",
+        }
+      }
+    />
+  </head>
+  <body>
+    <div
+      data-css-1e0ptde=""
+    />
+  </body>
+</html>
+`;
+
+exports[`:after 1`] = `
+<html>
+  <head>
+    <style
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": ".css-kqzsho,[data-css-kqzsho] {border: 1px solid red;}.css-kqzsho:after,[data-css-kqzsho]:after {border: 1px solid green;}",
+        }
+      }
+    />
+  </head>
+  <body>
+    <div
+      data-css-kqzsho=""
+    />
+  </body>
+</html>
+`;
+
+exports[`:before 1`] = `
+<html>
+  <head>
+    <style
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": ".css-1h2j4ma,[data-css-1h2j4ma] {border: 1px solid red;}.css-1h2j4ma:before,[data-css-1h2j4ma]:before {border: 1px solid green;}",
+        }
+      }
+    />
+  </head>
+  <body>
+    <div
+      data-css-1h2j4ma=""
+    />
+  </body>
+</html>
+`;
+
+exports[`:checked 1`] = `
+<html>
+  <head>
+    <style
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": ".css-hnm3i6,[data-css-hnm3i6] {border: 1px solid red;}.css-hnm3i6:checked,[data-css-hnm3i6]:checked {border: 1px solid green;}",
+        }
+      }
+    />
+  </head>
+  <body>
+    <div
+      data-css-hnm3i6=""
+    />
+  </body>
+</html>
+`;
+
+exports[`:disabled 1`] = `
+<html>
+  <head>
+    <style
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": ".css-1n2pwdt,[data-css-1n2pwdt] {border: 1px solid red;}.css-1n2pwdt:disabled,[data-css-1n2pwdt]:disabled {border: 1px solid green;}",
+        }
+      }
+    />
+  </head>
+  <body>
+    <div
+      data-css-1n2pwdt=""
+    />
+  </body>
+</html>
+`;
+
+exports[`:first-child 1`] = `
+<html>
+  <head>
+    <style
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": ".css-3l785a,[data-css-3l785a] {border: 1px solid red;}.css-3l785a:first-child,[data-css-3l785a]:first-child {border: 1px solid green;}",
+        }
+      }
+    />
+  </head>
+  <body>
+    <div
+      data-css-3l785a=""
+    />
+  </body>
+</html>
+`;
+
+exports[`:focus 1`] = `
+<html>
+  <head>
+    <style
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": ".css-ravbph,[data-css-ravbph] {border: 1px solid red;}.css-ravbph:focus,[data-css-ravbph]:focus {border: 1px solid green;}",
+        }
+      }
+    />
+  </head>
+  <body>
+    <div
+      data-css-ravbph=""
+    />
+  </body>
+</html>
+`;
+
+exports[`:hover 1`] = `
+<html>
+  <head>
+    <style
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": ".css-1iz9137,[data-css-1iz9137] {border: 1px solid red;}.css-1iz9137:hover,[data-css-1iz9137]:hover {border: 1px solid green;}",
+        }
+      }
+    />
+  </head>
+  <body>
+    <div
+      data-css-1iz9137=""
+    />
+  </body>
+</html>
+`;
+
+exports[`:last-child 1`] = `
+<html>
+  <head>
+    <style
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": ".css-tvf5a9,[data-css-tvf5a9] {border: 1px solid red;}.css-tvf5a9:last-child,[data-css-tvf5a9]:last-child {border: 1px solid green;}",
+        }
+      }
+    />
+  </head>
+  <body>
+    <div
+      data-css-tvf5a9=""
+    />
+  </body>
+</html>
+`;
+
+exports[`:nth-child 1`] = `
+<html>
+  <head>
+    <style
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": ".css-glqlp1,[data-css-glqlp1] {border: 1px solid red;}.css-glqlp1:nth-child(odd),[data-css-glqlp1]:nth-child(odd) {border: 1px solid green;}",
+        }
+      }
+    />
+  </head>
+  <body>
+    <div
+      data-css-glqlp1=""
+    />
+  </body>
+</html>
+`;
+
+exports[`:visited 1`] = `
+<html>
+  <head>
+    <style
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": ".css-z6sgur,[data-css-z6sgur] {border: 1px solid red;}.css-z6sgur:visited,[data-css-z6sgur]:visited {background: green;}",
+        }
+      }
+    />
+  </head>
+  <body>
+    <div
+      data-css-z6sgur=""
+    />
+  </body>
+</html>
+`;

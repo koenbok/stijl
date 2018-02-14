@@ -1,8 +1,9 @@
 import * as React from "react";
+import { merge } from "lodash";
 import { css as glamor, keyframes } from "glamor";
 
 import { renderToString } from "react-dom/server";
-import { renderStatic } from "glamor/server";
+import { renderStaticOptimized } from "glamor/server";
 
 // TODO: Warn if there is a parent styling component through contexts
 // TODO: Add cool types for media queries
@@ -60,8 +61,11 @@ export class StylingRule {
     return new StylingRule(this._style);
   }
 
-  merge(css: React.CSSProperties) {
-    return new StylingRule(Object.assign({}, this._style, css));
+  merge(style: React.CSSProperties | StylingRule) {
+    if (style instanceof StylingRule) {
+      style = style.style;
+    }
+    return new StylingRule(merge(this._style, style));
   }
 
   // Special selector helpers
@@ -135,7 +139,9 @@ export const Style = (css: React.CSSProperties) => new StylingRule(css);
 export const Keyframes = (css: React.CSSProperties) => keyframes(css);
 
 export const Styling = (props: { body: any }) => {
-  let { html, css, ids } = renderStatic(() => renderToString(props.body));
+  let { html, css, ids } = renderStaticOptimized(() =>
+    renderToString(props.body)
+  );
   return React.createElement("style", {
     dangerouslySetInnerHTML: { __html: css }
   });

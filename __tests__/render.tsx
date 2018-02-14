@@ -14,9 +14,23 @@ const Template = props => {
     </html>
   );
 };
-test("renders :first-child", () => {
-  const style = Style({ background: "red" });
-  style.nthChild("odd", { background: "green" });
+
+test("renders using spread", () => {
+  const style = Style({ border: "1px solid red" });
+
+  const tree = renderer
+    .create(
+      <Template>
+        <div {...style.css()} />
+      </Template>
+    )
+    .toJSON();
+
+  expect(tree).toMatchSnapshot();
+});
+
+test("renders using css property", () => {
+  const style = Style({ border: "1px solid red" });
 
   const tree = renderer
     .create(

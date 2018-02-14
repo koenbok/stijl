@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`merge with Style class 1`] = `
+<html>
+  <head>
+    <style
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": ".css-9rmff1,[data-css-9rmff1] {border-radius: 4px; font-weight: 700; screenandmedia(max-width: 200px):[object Object]; font-size: 60px; font-family: Colfax;}",
+        }
+      }
+    />
+  </head>
+  <body>
+    <div
+      data-css-9rmff1=""
+    />
+  </body>
+</html>
+`;
+
+exports[`merge with style object 1`] = `
+<html>
+  <head>
+    <style
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": ".css-ce8mfg,[data-css-ce8mfg] {border-radius: 6px; font-weight: 500; screenandmedia(max-width: 100px):[object Object]; font-family: sans-serif;}",
+        }
+      }
+    />
+  </head>
+  <body>
+    <div
+      data-css-ce8mfg=""
+    />
+  </body>
+</html>
+`;

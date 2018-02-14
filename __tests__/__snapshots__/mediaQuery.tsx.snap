@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders media query 1`] = `
+<html>
+  <head>
+    <style
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": ".css-1uy9vzu,[data-css-1uy9vzu] {background: green;}@media only screen and (maxWidth: 100px) {.css-1uy9vzu,[data-css-1uy9vzu] {background: red;}}",
+        }
+      }
+    />
+  </head>
+  <body>
+    <div
+      data-css-1uy9vzu=""
+    />
+  </body>
+</html>
+`;
