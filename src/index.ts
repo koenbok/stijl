@@ -2,7 +2,7 @@ import * as React from "react";
 import { css as glamor, keyframes } from "glamor";
 
 import { renderToString } from "react-dom/server";
-import { renderStatic } from "glamor/server";
+import { renderStaticOptimized } from "glamor/server";
 
 // TODO: Warn if there is a parent styling component through contexts
 // TODO: Add cool types for media queries
@@ -10,7 +10,7 @@ import { renderStatic } from "glamor/server";
 
 declare module "react" {
   interface HTMLAttributes<T> {
-    css?: StylingRule;
+    css?: StylingRule | StylingRule[];
   }
 
   interface SVGAttributes<T> {
@@ -26,6 +26,17 @@ const patchCreateElement = () => {
 
     if (props && props.css && props.css instanceof StylingRule) {
       Object.assign(props, props.css.css());
+      delete props["css"];
+    }
+
+    if (props && Array.isArray(props.css)) {
+      let style = Style();
+
+      while (props.css.length) {
+        style = style.merge(props.css.pop());
+      }
+
+      Object.assign(props, style.css());
       delete props["css"];
     }
 
@@ -131,11 +142,14 @@ export class StylingRule {
   }
 }
 
-export const Style = (css: React.CSSProperties) => new StylingRule(css);
+export const Style = (css: React.CSSProperties = {}) => new StylingRule(css);
 export const Keyframes = (css: React.CSSProperties) => keyframes(css);
 
 export const Styling = (props: { body: any }) => {
-  let { html, css, ids } = renderStatic(() => renderToString(props.body));
+  let { html, css, ids } = renderStaticOptimized(() =>
+    renderToString(props.body)
+  );
+
   return React.createElement("style", {
     dangerouslySetInnerHTML: { __html: css }
   });

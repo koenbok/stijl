@@ -6,7 +6,7 @@ exports[`renders hovers 1`] = `
     <style
       dangerouslySetInnerHTML={
         Object {
-          "__html": ".css-1pe0egf,[data-css-1pe0egf] {border: 1px solid red;}.css-1iz9137,[data-css-1iz9137] {border: 1px solid red;}.css-1iz9137:hover,[data-css-1iz9137]:hover {border: 1px solid green;}",
+          "__html": ".css-1iz9137,[data-css-1iz9137] {border: 1px solid red;}.css-1iz9137:hover,[data-css-1iz9137]:hover {border: 1px solid green;}",
         }
       }
     />
