@@ -1,4 +1,5 @@
 import * as React from "react";
+import { merge } from "lodash";
 import { css as glamor, keyframes } from "glamor";
 
 import { renderToString } from "react-dom/server";
@@ -71,8 +72,11 @@ export class StylingRule {
     return new StylingRule(this._style);
   }
 
-  merge(css: React.CSSProperties) {
-    return new StylingRule(Object.assign({}, this._style, css));
+  merge(style: React.CSSProperties | StylingRule) {
+    if (style instanceof StylingRule) {
+      style = style.style;
+    }
+    return new StylingRule(merge(this._style, style));
   }
 
   // Special selector helpers

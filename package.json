@@ -30,5 +30,9 @@
       "json",
       "node"
     ]
+  },
+  "dependencies": {
+    "@types/lodash": "^4.14.102",
+    "lodash": "^4.17.5"
   }
 }

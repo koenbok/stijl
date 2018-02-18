@@ -15,22 +15,25 @@ const Template = props => {
   );
 };
 
-test("renders using spread", () => {
-  const style = Style({ border: "1px solid red" });
+test("merge with style object", () => {
+  const styleA = Style({
+    borderRadius: 4,
+    fontWeight: 500,
+    "screen and media(maxWidth: 100px)": {
+      background: "green",
+      padding: 10
+    }
+  });
+  const styleB = {
+    borderRadius: 6,
+    fontFamily: "sans-serif",
+    "screen and media(maxWidth: 100px)": {
+      background: "red",
+      fontWeight: 600
+    }
+  };
 
-  const tree = renderer
-    .create(
-      <Template>
-        <div {...style.css()} />
-      </Template>
-    )
-    .toJSON();
-
-  expect(tree).toMatchSnapshot();
-});
-
-test("renders using css property", () => {
-  const style = Style({ border: "1px solid red" });
+  const style = styleA.merge(styleB);
 
   const tree = renderer
     .create(
@@ -43,13 +46,26 @@ test("renders using css property", () => {
   expect(tree).toMatchSnapshot();
 });
 
-test("renders hovers", () => {
-  const style = Style({ border: "1px solid red" });
-
-  style.hover({
-    border: "1px solid green"
+test("merge with Style class", () => {
+  const styleA = Style({
+    borderRadius: 4,
+    fontWeight: 700,
+    "screen and media(maxWidth: 100px)": {
+      background: "green",
+      padding: 10
+    }
+  });
+  const styleB = Style({
+    fontSize: 60,
+    fontFamily: "Colfax",
+    "screen and media(maxWidth: 200px)": {
+      background: "red",
+      fontWeight: 600
+    }
   });
 
+  const style = styleA.merge(styleB);
+
   const tree = renderer
     .create(
       <Template>
@@ -61,6 +77,7 @@ test("renders hovers", () => {
   expect(tree).toMatchSnapshot();
 });
 
+// Update tests to use deep merge
 test("update", () => {
   const style = Style({ border: "1px solid red" });
 
@@ -72,20 +89,6 @@ test("update", () => {
   });
 
   expect(style).toBe(style);
-});
-
-test("merge", () => {
-  const styleA = Style({ border: "1px solid red" });
-  const styleB = styleA.merge({ color: "red" });
-
-  expect(styleA.style).toEqual({
-    border: "1px solid red"
-  });
-
-  expect(styleB.style).toEqual({
-    border: "1px solid red",
-    color: "red"
-  });
 });
 
 test("copy", () => {
@@ -101,13 +104,4 @@ test("copy", () => {
   });
 
   expect(styleA).not.toBe(styleB);
-});
-
-test("::placeholder", () => {
-  const styleA = Style({});
-  styleA.placeholder({ color: "red" });
-
-  expect(styleA.style).toEqual({
-    "::placeholder": { color: "red" }
-  });
 });
