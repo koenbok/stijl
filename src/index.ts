@@ -9,15 +9,25 @@ import { renderStaticOptimized } from "glamor/server";
 // TODO: Add cool types for media queries
 // TODO: Add more psuedo css helpers
 
+export type Stylable = React.CSSProperties | StylingRule;
+
 declare module "react" {
   interface HTMLAttributes<T> {
-    css?: StylingRule | StylingRule[];
+    css?: Stylable | Stylable[];
   }
 
   interface SVGAttributes<T> {
-    css?: StylingRule;
+    css?: Stylable | Stylable[];
   }
 }
+
+const convertStylable = (style: Stylable) => {
+  if (style instanceof StylingRule) {
+    return style;
+  }
+
+  return Style(style);
+};
 
 const patchCreateElement = () => {
   const _createElement = React.createElement;
@@ -25,16 +35,17 @@ const patchCreateElement = () => {
   const createElement = (...args) => {
     const props = Array.isArray(args) ? args[1] : args["props"];
 
-    if (props && props.css && props.css instanceof StylingRule) {
-      Object.assign(props, props.css.css());
-      delete props["css"];
-    }
+    if (props && props.css) {
+      let style;
 
-    if (props && Array.isArray(props.css)) {
-      let style = Style();
+      if (Array.isArray(props.css)) {
+        style = Style();
 
-      while (props.css.length) {
-        style = style.merge(props.css.pop());
+        while (props.css.length) {
+          style = style.merge(convertStylable(props.css.pop()));
+        }
+      } else {
+        style = convertStylable(props.css);
       }
 
       Object.assign(props, style.css());
