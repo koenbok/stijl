@@ -4,6 +4,10 @@ import * as ReactDOMServer from "react-dom/server";
 import * as renderer from "react-test-renderer";
 import { Style, Styling } from "../src/index";
 
+const Wrapper = props => {
+  return <div css={props.css}>{props.children}</div>;
+};
+
 const Template = props => {
   return (
     <html>
@@ -29,16 +33,19 @@ test("renders using spread", () => {
   expect(tree).toMatchSnapshot();
 });
 
-test("renders using css property", () => {
+test("Pass CSS down to children", () => {
   const style = Style({ border: "1px solid red" });
 
   const tree = renderer
     .create(
       <Template>
-        <div css={style} />
+        <Wrapper css={style}>Hello</Wrapper>
       </Template>
     )
     .toJSON();
 
-  expect(tree).toMatchSnapshot();
+  const styleTag =
+    tree.children[0].children[0].props.dangerouslySetInnerHTML.__html;
+
+  expect(styleTag).not.toBe("");
 });
